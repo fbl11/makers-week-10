@@ -35,7 +35,7 @@ class ShuffleListTest {
 
     @Test
     void ShuffleListTest_1000Reps_startAt1000_stepsOf1000() {
-        System.out.println("\n 100 Lists from 1000 elements, increasing by 1000 - average times over 1000 repetitions");
+        System.out.println("\n 100 Lists from 1000 elements, increasing by 1000 - average times over 5000 repetitions");
 
         List<Duration> durs = Samples.sampleListsManualValues().stream()
                 .map(list -> Timer.avgTimeInNanos(() -> ShuffleList.shuffleInBuilt(list), 1000))

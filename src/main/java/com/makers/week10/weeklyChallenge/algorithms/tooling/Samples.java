@@ -65,7 +65,6 @@ public class Samples {
         return listSizes;
     }
 
-
     public static List<List<Integer>> sampleListsManualValues() {
         return getListWith100Ints(1000, 1000)
                 .stream()
@@ -73,12 +72,16 @@ public class Samples {
                 .collect(Collectors.toList());
     }
 
-    public static List<Integer> listOfIntegers(int numberOfIntegers) {
-        return IntStream.range(1, numberOfIntegers)
-                .boxed()
+    public static List<List<Integer>> randomListsManualValues() {
+        List<Integer> sizes = getListWith100Ints(1000, 1000);
+        List<List<Integer>> numLists = sizes.stream()
+                .map(count -> ListCreation.createListWithStream(1, count))
+                .collect(Collectors.toList());
+
+        return numLists.stream()
+                .map(list -> ShuffleList.shuffleInBuilt(list))
                 .collect(Collectors.toList());
     }
-
 
     //    for 'Sort into groups example'
     public static List<String> cohort = Arrays.asList("Name1", "Name2", "Name3", "Name4", "Name5", "Name6", "Name7", "Name8", "Name9", "Name10");

@@ -51,10 +51,10 @@ class SortListTest {
     }
 
     @Test
-    void SortListTest_1000Reps_startAt1000_stepsOf1000() {
-        System.out.println("\n 100 Lists from 1000 elements, increasing by 1000 - average times over 5000 repetitions");
+    void SortListTest_5000Reps_startAt1000_stepsOf1000() {
+        System.out.println("\n 100 Lists from 1000 elements, increasing by 1000 - average times over 1000 repetitions");
 
-        List<Duration> durs = Samples.sampleListsManualValues().stream()
+        List<Duration> durs = Samples.randomListsManualValues().stream()
                 .map(list -> Timer.avgTimeInNanos(() -> SortList.sortInBuilt(list), 5000))
                 .collect(Collectors.toList());
         Output.printDurationsInNanosecs(durs);
