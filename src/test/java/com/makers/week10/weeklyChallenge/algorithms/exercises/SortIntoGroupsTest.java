@@ -15,19 +15,76 @@ import static org.junit.jupiter.api.Assertions.*;
 class SortIntoGroupsTest {
     private static Logger logger = LoggerFactory.getLogger(SortIntoGroups.class);
 
-    @Test
-    void SortIntoGroups() {
-        List<String> group = Samples.cohort;
 
-        System.out.println("One iteration");
+    @Test
+    void SortIntoGroups_10Names() {
+        List<String> group = Samples.listOfNames(10);
+
+        System.out.println("10 Names One iteration");
         Duration dur = Timer.timeInNanos(() -> SortIntoGroups.createTeams(group, 3));
         Output.printDurationInNanosecs(dur);
 
-        System.out.println("\n\n");
+//        System.out.println("\n");
 
-        System.out.println("Average over 100000 iterations");
+        System.out.println("10 Names Average over 100000 iterations");
         Duration avgDur = Timer.avgTimeInNanos(() -> SortIntoGroups.createTeams(group, 3), 100000);
         Output.printDurationInNanosecs(avgDur);
+
+        System.out.println("\n");
+
+    }
+
+    @Test
+    void SortIntoGroups_100Names() {
+        List<String> group = Samples.listOfNames(100);
+
+        System.out.println("100 Names One iteration");
+        Duration dur = Timer.timeInNanos(() -> SortIntoGroups.createTeams(group, 3));
+        Output.printDurationInNanosecs(dur);
+
+//        System.out.println("\n");
+
+        System.out.println("100 Names Average over 100000 iterations");
+        Duration avgDur = Timer.avgTimeInNanos(() -> SortIntoGroups.createTeams(group, 3), 100000);
+        Output.printDurationInNanosecs(avgDur);
+
+        System.out.println("\n");
+
+    }
+
+    @Test
+    void SortIntoGroups_1000Names() {
+        List<String> group = Samples.listOfNames(1000);
+
+        System.out.println("1.000 Names One iteration");
+        Duration dur = Timer.timeInNanos(() -> SortIntoGroups.createTeams(group, 3));
+        Output.printDurationInNanosecs(dur);
+
+//        System.out.println("\n");
+
+        System.out.println("1.000 Names Average over 100000 iterations");
+        Duration avgDur = Timer.avgTimeInNanos(() -> SortIntoGroups.createTeams(group, 3), 100000);
+        Output.printDurationInNanosecs(avgDur);
+
+        System.out.println("\n");
+
+    }
+
+    @Test
+    void SortIntoGroups_10000Names() {
+        List<String> group = Samples.listOfNames(10000);
+
+        System.out.println("10.000 Names One iteration");
+        Duration dur = Timer.timeInNanos(() -> SortIntoGroups.createTeams(group, 3));
+        Output.printDurationInNanosecs(dur);
+
+//        System.out.println("\n");
+
+        System.out.println("10.000 Names Average over 100000 iterations");
+        Duration avgDur = Timer.avgTimeInNanos(() -> SortIntoGroups.createTeams(group, 3), 100000);
+        Output.printDurationInNanosecs(avgDur);
+
+        System.out.println("\n");
 
     }
 
