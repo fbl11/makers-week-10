@@ -11,12 +11,22 @@ public class RandomTests {
 
     @Test
     void TestingSizes() {
-        System.out.println(Samples.sizes);
+        System.out.println(Samples.ListSizes);
     }
 
     @Test
-    void TestingGetListWith100Ints() {
-        System.out.println(Samples.createListWith100Ints(10, 10));
+    void TestingCreateListWithNInts() {
+        System.out.println(Samples.createListWithNInts(1000, 1000,100));
+    }
+
+    @Test
+    void TestingCreateNameListWithNNames(){
+        List<List<String>> test = Samples.sampleNameListsStartAt1000StepSize1000Limit100();
+        System.out.println(test);
+        System.out.println(test.size());
+        System.out.println(test.get(0).size());
+        System.out.println(test.get(1).size());
+        System.out.println(test.get(2).size());
     }
 
     @Test
@@ -24,6 +34,15 @@ public class RandomTests {
         List<Integer> someList = Arrays.asList(1, 2, 3, 4);
 
         List<Integer> shuffeledList = ShuffleList.shuffleListDIY(someList);
+
+        System.out.println(shuffeledList);
+    }
+
+    @Test
+    void shuffleListDIYNoRemove() {
+        List<Integer> someList = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+
+        List<Integer> shuffeledList = ShuffleList.shuffleListDIYNoRemove(someList);
 
         System.out.println(shuffeledList);
     }

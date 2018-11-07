@@ -2,6 +2,7 @@ package com.makers.week10.weeklyChallenge.algorithms.tooling;
 
 import com.makers.week10.weeklyChallenge.algorithms.exercises.ShuffleList;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -10,16 +11,16 @@ import java.util.stream.IntStream;
 
 public class Samples {
 
-    public static List<Integer> sizes = Arrays.asList(10, 100, 1000, 10000, 100000);
+    public static List<Integer> ListSizes = Arrays.asList(10, 100, 1000, 10000, 100000);
 
     public static List<List<Integer>> sampleLists() {
-        return sizes.stream()
+        return ListSizes.stream()
                 .map(count -> ListCreation.createListWithStream(1, count))
                 .collect(Collectors.toList());
     }
 
     public static List<List<Integer>> randomLists() {
-        return sizes.stream()
+        return ListSizes.stream()
                 .map(count -> ListCreation.createListWithStream(1, count))
                 .peek(list -> Collections.shuffle(list))
                 .collect(Collectors.toList());
@@ -46,7 +47,13 @@ public class Samples {
 
 //    linear steps
 
-    public static List<Integer> createListWith100Ints(int start, int stepSize) {
+    public static List<Integer> createListWithNInts(int start, int stepSize, int limit) {
+
+        return IntStream.iterate(start, prev -> prev + stepSize)
+                .limit(limit)
+                .boxed()
+                .collect(Collectors.toList());
+
 //        Integer value = start;
 //
 //        List<Integer> listSizes = new ArrayList<>(100);
@@ -60,24 +67,17 @@ public class Samples {
 //            listSizes.add(i);
 //        }
 //        return listSizes;
-
-        return IntStream.iterate(start, prev -> prev + stepSize)
-                .limit(100)
-                .boxed()
-                .collect(Collectors.toList());
-
-
     }
 
     public static List<List<Integer>> sampleListsManualValues() {
-        return createListWith100Ints(1000, 1000)
+        return createListWithNInts(1000, 1000, 100)
                 .stream()
                 .map(count -> ListCreation.createListWithStream(1, count))
                 .collect(Collectors.toList());
     }
 
     public static List<List<Integer>> randomListsManualValues() {
-        List<List<Integer>> numLists = createListWith100Ints(1000, 1000).stream()
+        List<List<Integer>> numLists = createListWithNInts(1000, 1000, 100).stream()
                 .map(count -> ListCreation.createListWithStream(1, count))
                 .collect(Collectors.toList());
 
@@ -95,4 +95,33 @@ public class Samples {
                 .map((nameNumber) -> "Name" + nameNumber.toString())
                 .collect(Collectors.toList());
     }
+
+    public static List<List<String>> sampleNameListsStartAt1000StepSize1000Limit100() {
+        List<Integer> groupSizes = createListWithNInts(1000, 1000, 100);
+        List<List<String>> listOfListsOfNames = new ArrayList<>();
+
+        for (Integer groupSize : groupSizes)
+        { listOfListsOfNames.add(listOfNames(groupSize));
+            
+        }
+        return listOfListsOfNames;
+    }
+
+    public static List<List<String>> sampleNameListsStartAt5000StepSize1500Limit100() {
+        List<Integer> groupSizes = createListWithNInts(5000, 1500, 100);
+        List<List<String>> listOfListsOfNames = new ArrayList<>();
+
+        for (Integer groupSize : groupSizes)
+        { listOfListsOfNames.add(listOfNames(groupSize));
+
+        }
+        return listOfListsOfNames;
+    }
+//
+//    public static List<List<Integer>> sampleListsManualValues() {
+//        return createListWithNInts(1000, 1000, 100)
+//                .stream()
+//                .map(count -> ListCreation.createListWithStream(1, count))
+//                .collect(Collectors.toList());
+//    }
 }
