@@ -26,7 +26,7 @@ Implement your own algorithm for shuffling (you cannot use `.shuffle`).
 Graphs:
 ![DIY Shuffle optimised](/graphs/DIYShuffleOptimised.png)
 ![Shuffle BuiltIn vs Shuffle DIY optimised](/graphs/ShuffleBuiltInVsDIYOptimised.png)
-![Shuffle BuiltIn vs Shuffle DIY not optimised](/graphs/ShuffleBuiltInVsDIY(not optimised).png)
+![Shuffle BuiltIn vs Shuffle DIY not optimised](/graphs/ShuffleBuiltInVsDIY_notOptimised.png)
 ![DIY Shuffle optimised vs Shuffle DIY not optimised](/graphs/ShuffleDIYVsDIYoptimised.png)
 
 #### Sorting into groups
