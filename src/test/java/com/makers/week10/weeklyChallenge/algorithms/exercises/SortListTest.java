@@ -9,8 +9,6 @@ import java.time.Duration;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class SortListTest {
 
     @Test
@@ -18,13 +16,13 @@ class SortListTest {
         System.out.println("\nLists of 10, 100, 1.000, 10.000, 100.000 - one repetition");
 
         List<Duration> durs = Samples.randomLists().stream()
-                .map(list -> Timer.timeInNanos(() -> SortList.sortInBuilt(list)))
+                .map(list -> Timer.timeInNanos(() -> SortList.sortBuiltIn(list)))
                 .collect(Collectors.toList());
         Output.printDurationsInNanosecs(durs);
 
         System.out.println("\nNo Shuffle");
         durs = Samples.sampleLists().stream()
-                .map(list -> Timer.timeInNanos(() -> SortList.sortInBuilt(list)))
+                .map(list -> Timer.timeInNanos(() -> SortList.sortBuiltIn(list)))
                 .collect(Collectors.toList());
         Output.printDurationsInNanosecs(durs);
     }
@@ -34,7 +32,7 @@ class SortListTest {
         System.out.println("\nLists of 10, 100, 1.000, 10.000, 100.000 - average times over 10.000 repetitions");
 
         List<Duration> avgDurs = Samples.randomLists().stream()
-                .map(list -> Timer.avgTimeInNanos(() -> SortList.sortInBuilt(list), 10000))
+                .map(list -> Timer.avgTimeInNanos(() -> SortList.sortBuiltIn(list), 10000))
                 .collect(Collectors.toList());
         Output.printDurationsInNanosecs(avgDurs);
     }
@@ -45,7 +43,7 @@ class SortListTest {
         System.out.println("\nList of 1000000 elements - average times over 10.000 repetitions");
 
         List<Duration> avgDurs = Samples.bigRandomList().stream()
-                .map(list -> Timer.avgTimeInNanos(() -> SortList.sortInBuilt(list), 10000))
+                .map(list -> Timer.avgTimeInNanos(() -> SortList.sortBuiltIn(list), 10000))
                 .collect(Collectors.toList());
         Output.printDurationsInNanosecs(avgDurs);
     }
@@ -55,7 +53,7 @@ class SortListTest {
         System.out.println("\n 100 Lists from 1000 elements, increasing by 1000 - average times over 1000 repetitions");
 
         List<Duration> durs = Samples.randomListsManualValues().stream()
-                .map(list -> Timer.avgTimeInNanos(() -> SortList.sortInBuilt(list), 5000))
+                .map(list -> Timer.avgTimeInNanos(() -> SortList.sortBuiltIn(list), 5000))
                 .collect(Collectors.toList());
         Output.printDurationsInNanosecs(durs);
     }

@@ -1,6 +1,6 @@
 package com.makers.week10.weeklyChallenge.algorithms.exercises;
 
-import com.makers.week10.weeklyChallenge.algorithms.tooling.Samples;
+import com.makers.week10.weeklyChallenge.algorithms.tooling.ListCreation;
 import com.makers.week10.weeklyChallenge.algorithms.tooling.Timer;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
@@ -40,13 +40,4 @@ class ListCreationTest {
         List<Integer> list = ListCreation.createListWithStream(1, i);
     }
 
-    @Test
-    void TestingSizes() {
-        System.out.println(Samples.sizes);
-    }
-
-    @Test
-    void TestingGetListWith100Ints() {
-        System.out.println(Samples.getListWith100Ints(10, 10));
-    }
 }

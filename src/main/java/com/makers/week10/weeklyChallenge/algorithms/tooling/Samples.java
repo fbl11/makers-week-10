@@ -1,10 +1,7 @@
 package com.makers.week10.weeklyChallenge.algorithms.tooling;
 
-import com.makers.week10.weeklyChallenge.algorithms.exercises.ListCreation;
 import com.makers.week10.weeklyChallenge.algorithms.exercises.ShuffleList;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -22,12 +19,9 @@ public class Samples {
     }
 
     public static List<List<Integer>> randomLists() {
-        List<List<Integer>> numLists = sizes.stream()
+        return sizes.stream()
                 .map(count -> ListCreation.createListWithStream(1, count))
-                .collect(Collectors.toList());
-
-        return numLists.stream()
-                .map(list -> ShuffleList.shuffleInBuilt(list))
+                .peek(list -> Collections.shuffle(list))
                 .collect(Collectors.toList());
     }
 
@@ -46,40 +40,49 @@ public class Samples {
                 .collect(Collectors.toList());
 
         return bigList.stream()
-                .map(list -> ShuffleList.shuffleInBuilt(list))
+                .map(list -> ShuffleList.shuffleBuiltIn(list))
                 .collect(Collectors.toList());
     }
 
 //    linear steps
 
-    public static List<Integer> getListWith100Ints(int start, int stepSize) {
-        Integer value = start;
-        Integer step = stepSize;
+    public static List<Integer> createListWith100Ints(int start, int stepSize) {
+//        Integer value = start;
+//
+//        List<Integer> listSizes = new ArrayList<>(100);
+//
+//        for(int i = 0 ; i <= 100 ; i++) {
+//            listSizes.add(value);
+//            value += stepSize;
+//        }
 
-        List<Integer> listSizes = new ArrayList<>(100);
+//        for(int i = start ; i <= start+100*stepSize ; i = i + stepSize) {
+//            listSizes.add(i);
+//        }
+//        return listSizes;
 
-        for(int i = 0 ; i <= 100 ; i++) {
-            listSizes.add(value);
-            value += step;
-        }
-        return listSizes;
+        return IntStream.iterate(start, prev -> prev + stepSize)
+                .limit(100)
+                .boxed()
+                .collect(Collectors.toList());
+
+
     }
 
     public static List<List<Integer>> sampleListsManualValues() {
-        return getListWith100Ints(1000, 1000)
+        return createListWith100Ints(1000, 1000)
                 .stream()
                 .map(count -> ListCreation.createListWithStream(1, count))
                 .collect(Collectors.toList());
     }
 
     public static List<List<Integer>> randomListsManualValues() {
-        List<Integer> sizes = getListWith100Ints(1000, 1000);
-        List<List<Integer>> numLists = sizes.stream()
+        List<List<Integer>> numLists = createListWith100Ints(1000, 1000).stream()
                 .map(count -> ListCreation.createListWithStream(1, count))
                 .collect(Collectors.toList());
 
         return numLists.stream()
-                .map(list -> ShuffleList.shuffleInBuilt(list))
+                .map(list -> ShuffleList.shuffleBuiltIn(list))
                 .collect(Collectors.toList());
     }
 

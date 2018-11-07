@@ -1,4 +1,4 @@
-package com.makers.week10.weeklyChallenge.algorithms.exercises;
+package com.makers.week10.weeklyChallenge.algorithms.tooling;
 
 import java.util.ArrayList;
 import java.util.List;

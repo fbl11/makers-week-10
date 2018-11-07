@@ -4,7 +4,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class ReverseList {
-    public static List<Integer> reverseInBuilt(List<Integer> list) {
+    public static List<Integer> reverseBuiltIn(List<Integer> list) {
         Collections.reverse(list);
         return list;
     }

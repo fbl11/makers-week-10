@@ -21,11 +21,10 @@ public class SortIntoGroups {
     }
 
     public static List<List<String>> createGroups(Integer numberOfGroups) {
-        List<List<String>> groups = new ArrayList<>();
+        List<List<String>> groups = new ArrayList<List<String>>();
         for(int i=0; i < numberOfGroups; i++) {
             groups.add(new ArrayList<>());
         }
         return groups;
     }
-
 }

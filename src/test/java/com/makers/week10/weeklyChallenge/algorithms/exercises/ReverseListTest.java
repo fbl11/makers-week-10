@@ -9,8 +9,6 @@ import java.time.Duration;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class ReverseListTest {
 
     @Test
@@ -18,7 +16,7 @@ class ReverseListTest {
         System.out.println("\nLists of 10, 100, 1.000, 10.000, 100.000 - one repetition");
 
         List<Duration> durs = Samples.sampleLists().stream()
-                .map(list -> Timer.timeInNanos(()-> ReverseList.reverseInBuilt(list)))
+                .map(list -> Timer.timeInNanos(()-> ReverseList.reverseBuiltIn(list)))
                 .collect(Collectors.toList());
         Output.printDurationsInNanosecs(durs);
     }
@@ -28,7 +26,7 @@ class ReverseListTest {
         System.out.println("\nLists of 10, 100, 1.000, 10.000, 100.000 - average times over 10.000 repetitions");
 
         List<Duration> avgDurs = Samples.sampleLists().stream()
-                .map(list -> Timer.avgTimeInNanos(() -> ReverseList.reverseInBuilt(list), 10000))
+                .map(list -> Timer.avgTimeInNanos(() -> ReverseList.reverseBuiltIn(list), 10000))
                 .collect(Collectors.toList());
         Output.printDurationsInNanosecs(avgDurs);
     }
@@ -38,7 +36,7 @@ class ReverseListTest {
         System.out.println("\n List of 1.000.000 elements - average time over 10.000 repetitions");
 
         List<Duration> durs = Samples.bigSampleList().stream()
-                .map(list -> Timer.avgTimeInNanos(() -> ReverseList.reverseInBuilt(list), 10000))
+                .map(list -> Timer.avgTimeInNanos(() -> ReverseList.reverseBuiltIn(list), 10000))
                 .collect(Collectors.toList());
         Output.printDurationsInNanosecs(durs);
 
