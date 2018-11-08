@@ -42,9 +42,10 @@ Given an array containing only 0s and 1s, sort it.
 [My Code](https://github.com/fbl11/makers-week-10/blob/master/src/main/java/com/makers/week10/weeklyChallenge/algorithms/exercises/SortZerosAndOnes.java)
 
 #### MergeSort DIY
-Implements a merge sort algorithm.
-![MergeSort DIY](/graphs/)
-[My Code]()
+Implements a merge sort algorithm - looks very inefficient, need to look at implementation again.
+![MergeSort DIY](/graphs/MergeSortDIY.png)
+![MergeSort DIY vs BuiltIn Sort](/graphs/DIYMergeSortVsBuiltInSort.png)
+[My Code](https://github.com/fbl11/makers-week-10/blob/master/src/main/java/com/makers/week10/weeklyChallenge/algorithms/exercises/MergeSortDIY.java)
 
 #### Reversing
 Implement your own algorithm for reversing an array (you cannot use `.reverse`).
