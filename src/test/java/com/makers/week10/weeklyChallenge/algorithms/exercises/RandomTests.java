@@ -1,5 +1,6 @@
 package com.makers.week10.weeklyChallenge.algorithms.exercises;
 
+import com.makers.week10.weeklyChallenge.algorithms.tooling.ListCreation;
 import com.makers.week10.weeklyChallenge.algorithms.tooling.Samples;
 import org.junit.jupiter.api.Test;
 
@@ -12,6 +13,17 @@ public class RandomTests {
     @Test
     void TestingSizes() {
         System.out.println(Samples.ListSizes);
+    }
+
+    @Test
+    void TestingListCreation() {
+        List<Integer> newListOne = ListCreation.createListWithStream(5, 10);
+        List<Integer> newListTwo = ListCreation.createListWithStream(10, 50);
+        List<Integer> newListThree = ListCreation.createListWithStream(0, 1);
+
+        System.out.println(newListOne);
+        System.out.println(newListTwo);
+        System.out.println(newListThree);
     }
 
     @Test
@@ -50,9 +62,11 @@ public class RandomTests {
     @Test
     void TestingRandom() {
         Random rand = new Random();
-        int selected = rand.nextInt(10);
+        int selected = rand.nextInt(5);
+        int smallerThanOne = rand.nextInt(1);
 
-        System.out.println(selected);
         System.out.println(rand);
+        System.out.println(selected);
+        System.out.println((smallerThanOne));
     }
 }

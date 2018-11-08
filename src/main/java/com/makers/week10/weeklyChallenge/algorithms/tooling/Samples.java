@@ -86,6 +86,17 @@ public class Samples {
                 .collect(Collectors.toList());
     }
 
+//    lists with only zero and one elements
+
+    public static List<List<Integer>> sampleListsZerosAndOnes() {
+        return createListWithNInts(1000, 1000, 100)
+                .stream()
+                .map(count -> ListCreation.createListOfZerosAndOnesWithStream(count))
+                .collect(Collectors.toList());
+    }
+
+
+
     //    for 'Sort into groups example'
     public static List<String> cohort = Arrays.asList("Name1", "Name2", "Name3", "Name4", "Name5", "Name6", "Name7", "Name8", "Name9", "Name10");
 
@@ -117,11 +128,5 @@ public class Samples {
         }
         return listOfListsOfNames;
     }
-//
-//    public static List<List<Integer>> sampleListsManualValues() {
-//        return createListWithNInts(1000, 1000, 100)
-//                .stream()
-//                .map(count -> ListCreation.createListWithStream(1, count))
-//                .collect(Collectors.toList());
-//    }
+
 }

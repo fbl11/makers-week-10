@@ -34,6 +34,10 @@ Given a list of names, randomly sort those into groups of equal size (no more th
 Graph:
 ![Sort into groups](/graphs/SortIntoGroupsDIY.png)
 
+#### Sorting 0s and 1s
+Given an array containing only 0s and 1s, sort it.
+![Sort Zeros and Ones](/graphs/SortZerosAndOnes.png)
+
 #### Reversing
 Implement your own algorithm for reversing an array (you cannot use `.reverse`).
 
@@ -45,9 +49,6 @@ Given a list of words, find all words that appear more than once.
 
 #### Most frequent words
 Given a text, find which are the ten most common words.
-
-#### Sorting 0s and 1s
-Given an array containing only 0s and 1s, sort it.
 
 #### Sorting
 Implement your own algorithm for sorting an array (you cannot use `.sort`).
