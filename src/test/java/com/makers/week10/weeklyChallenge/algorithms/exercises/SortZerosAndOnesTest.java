@@ -11,8 +11,11 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 class SortZerosAndOnesTest {
 
+//    test performance
     @Test
     void SortZerosAndOnes_Streams_5000Reps_startAt000_stepsOf1000() {
         System.out.println("\n 100 Lists, starting with 1000 elements, steps of 1000 - average times over 5000 iterations");
@@ -40,6 +43,9 @@ class SortZerosAndOnesTest {
         List<Integer> tenElements = ListCreation.createListOfZerosAndOnesWithStream(10);
         List<Integer> twentyElements = ListCreation.createListOfZerosAndOnesWithStream(20);
 
+        assertEquals(5, fiveElements.size());
+        assertEquals(10, tenElements.size());
+        assertEquals(20, twentyElements.size());
         System.out.println(fiveElements);
         System.out.println(tenElements);
         System.out.println(twentyElements);
@@ -49,6 +55,10 @@ class SortZerosAndOnesTest {
     void TestingZeroOneSampleListCreation() {
         List<List<Integer>> testLists = Samples.sampleListsZerosAndOnes();
 
+        assertEquals(100, testLists.size());
+        assertEquals(1000, testLists.get(0).size());
+        assertEquals(2000, testLists.get(1).size());
+        assertEquals(100000, testLists.get(testLists.size()-1).size());
         System.out.println(testLists);
     }
 
@@ -58,6 +68,7 @@ class SortZerosAndOnesTest {
 
         List<Integer> newList = SortZerosAndOnes.sortZerosAndOnesStream(someList);
 
+        assertEquals(Arrays.asList(0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1), newList);
         System.out.println(newList);
     }
 }
