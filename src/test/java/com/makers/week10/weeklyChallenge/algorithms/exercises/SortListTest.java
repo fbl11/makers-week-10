@@ -11,6 +11,7 @@ import java.util.stream.Collectors;
 
 class SortListTest {
 
+    // test performance builtIn sort
     @Test
     void SortListTest_oneRep() {
         System.out.println("\nLists of 10, 100, 1.000, 10.000, 100.000 - one repetition");

@@ -16,7 +16,7 @@ public class ListCreation {
     }
 
     public static List<Integer> createListWithStream(int from, int limit) {
-        return IntStream.range(from, limit)
+        return IntStream.range(from, limit + 1)
                 .boxed()
                 .collect(Collectors.toList());
     }

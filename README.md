@@ -28,15 +28,23 @@ Graphs:
 ![Shuffle BuiltIn vs Shuffle DIY optimised](/graphs/ShuffleBuiltInVsDIYOptimised.png)
 ![Shuffle BuiltIn vs Shuffle DIY not optimised](/graphs/ShuffleBuiltInVsDIYNotOptimised.png)
 ![DIY Shuffle optimised vs Shuffle DIY not optimised](/graphs/ShuffleDIYVsDIYoptimised.png)
+[My Code](https://github.com/fbl11/makers-week-10/blob/master/src/main/java/com/makers/week10/weeklyChallenge/algorithms/exercises/ShuffleList.java)
 
 #### Sorting into groups
 Given a list of names, randomly sort those into groups of equal size (no more than one person difference)
 Graph:
 ![Sort into groups](/graphs/SortIntoGroupsDIY.png)
+[My Code](https://github.com/fbl11/makers-week-10/blob/master/src/main/java/com/makers/week10/weeklyChallenge/algorithms/exercises/SortIntoGroups.java)
 
 #### Sorting 0s and 1s
 Given an array containing only 0s and 1s, sort it.
 ![Sort Zeros and Ones](/graphs/SortZerosAndOnes.png)
+[My Code](https://github.com/fbl11/makers-week-10/blob/master/src/main/java/com/makers/week10/weeklyChallenge/algorithms/exercises/SortZerosAndOnes.java)
+
+#### MergeSort DIY
+Implements a merge sort algorithm.
+![MergeSort DIY](/graphs/)
+[My Code]()
 
 #### Reversing
 Implement your own algorithm for reversing an array (you cannot use `.reverse`).

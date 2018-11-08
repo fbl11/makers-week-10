@@ -4,9 +4,10 @@ import com.makers.week10.weeklyChallenge.algorithms.tooling.ListCreation;
 import com.makers.week10.weeklyChallenge.algorithms.tooling.Samples;
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class RandomTests {
 
@@ -27,8 +28,29 @@ public class RandomTests {
     }
 
     @Test
+    void randomSampleListGeneration() {
+        List<List<Integer>> samples = Samples.randomListsManualValues();
+
+        assertEquals(100, samples.size());
+        assertEquals(1000, samples.get(0).size());
+        assertEquals(100000, samples.get(samples.size()-1).size());
+        System.out.println(samples);
+        System.out.println(samples.get(0));
+        System.out.println(samples.get(samples.size()-1));
+    }
+
+    @Test
     void TestingCreateListWithNInts() {
-        System.out.println(Samples.createListWithNInts(1000, 1000,100));
+        List<Integer> templateList = Samples.createListWithNInts(1000, 1000,100);
+        int firstElement = templateList.get(0);
+        int lastElement = templateList.get(templateList.size()-1);
+
+        assertEquals(100, templateList.size());
+        assertEquals(1000, firstElement);
+        assertEquals(100000, lastElement);
+        System.out.println(templateList);
+        System.out.println(firstElement);
+        System.out.println(lastElement);
     }
 
     @Test
@@ -39,24 +61,6 @@ public class RandomTests {
         System.out.println(test.get(0).size());
         System.out.println(test.get(1).size());
         System.out.println(test.get(2).size());
-    }
-
-    @Test
-    void TestingShuffleListDIY() {
-        List<Integer> someList = Arrays.asList(1, 2, 3, 4);
-
-        List<Integer> shuffeledList = ShuffleList.shuffleListDIY(someList);
-
-        System.out.println(shuffeledList);
-    }
-
-    @Test
-    void shuffleListDIYNoRemove() {
-        List<Integer> someList = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
-
-        List<Integer> shuffeledList = ShuffleList.shuffleListDIYNoRemove(someList);
-
-        System.out.println(shuffeledList);
     }
 
     @Test

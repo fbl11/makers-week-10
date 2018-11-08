@@ -6,11 +6,37 @@ import com.makers.week10.weeklyChallenge.algorithms.tooling.Timer;
 import org.junit.jupiter.api.Test;
 
 import java.time.Duration;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+
 class ShuffleListTest {
 
+//    test functionality of DIY shuffle
+
+    @Test
+    void TestingShuffleListDIY() {
+        List<Integer> someList = Arrays.asList(1, 2, 3, 4);
+
+        List<Integer> shuffeledList = ShuffleList.shuffleListDIY(someList);
+
+        assertNotEquals(shuffeledList, someList);
+        System.out.println(shuffeledList);
+    }
+
+    @Test
+    void shuffleListDIYNoRemove() {
+        List<Integer> someList = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+
+        List<Integer> shuffeledList = ShuffleList.shuffleListDIYNoRemove(someList);
+
+        assertNotEquals(shuffeledList, someList);
+        System.out.println(shuffeledList);
+    }
+
+    // test performance builtIn shuffle
     @Test
     void ShuffleListTest_oneRep() {
         System.out.println("\nLists of 10, 100, 1.000, 10.000, 100.000 - one repetition");
@@ -61,6 +87,7 @@ class ShuffleListTest {
         Output.printDurationsInNanosecs(durs);
     }
 
+//    test performance DIY shuffle
     @Test
     void ShuffleListDIYTest_oneRep() {
         System.out.println("\n100 Lists, starting with 1000 elements, steps of 1.000 - one repetition");

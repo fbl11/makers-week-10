@@ -1,9 +1,14 @@
 package com.makers.week10.weeklyChallenge.algorithms.exercises;
 
+import com.makers.week10.weeklyChallenge.algorithms.tooling.Output;
+import com.makers.week10.weeklyChallenge.algorithms.tooling.Samples;
+import com.makers.week10.weeklyChallenge.algorithms.tooling.Timer;
 import org.junit.jupiter.api.Test;
 
+import java.time.Duration;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -53,6 +58,16 @@ class MergeSortDIYTest {
     }
 
 //    test performance
+
+    @Test
+    void SortListTest_5000Reps_startAt1000_stepsOf1000() {
+        System.out.println("\n 100 Lists from 1000 elements, increasing by 1000 - average times over 1000 repetitions");
+
+        List<Duration> durs = Samples.randomListsManualValues().stream()
+                .map(list -> Timer.avgTimeInNanos(() -> MergeSortDIY.mergeSortDIY(list), 1000))
+                .collect(Collectors.toList());
+        Output.printDurationsInNanosecs(durs);
+    }
 
 
 }
